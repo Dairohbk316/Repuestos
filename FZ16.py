@@ -7,19 +7,27 @@ def agregar_repuestos(repuestos):
     km = float(input('Ingrese kilometraje '))
     valor = float(input('ingrese valor repuesto '))
 
-    refacciones = {
+    autopartes= {
         'refaccion': refaccion, # creo el diccionario y adjunto a la clave el valor del usuario
         'fecha' : fecha,
         'km' : km,
         'valor': valor
     }
 
-    repuestos.append(refacciones) #Agrego a la lista repuestos el diccionario refacciones
-    print('repuesto guradado con exito')
+    repuestos.append(autopartes) #Agrego a la lista repuestos el diccionario refacciones
+    print('repuesto guardado con exito')
 
 def listar_repuestos(repuestos):
     for i in repuestos:
         print(i)
+
+def lista_refacciones(repuestos):
+    for indice, recambio in enumerate(repuestos):
+        print('{refaccion} | {fecha} | {km} | {valor}'.format(uid=indice,
+                                                              refaccion=autopartes['refaccion'],
+                                                              fecha=autopartes['fecha'],
+                                                              km=autopartes['km'],
+                                                              valor=autopartes['valor']))        
 
 if __name__ == '__main__':
 
@@ -29,9 +37,11 @@ if __name__ == '__main__':
 
         if option == 'si':
             agregar_repuestos(repuestos)
-            listar_repuestos(repuestos)
             
-        elif option == 'si':
+            lista_refacciones(repuestos)
+            
+        elif option == 'no':
+            listar_repuestos(repuestos)
             break
         else:
             print('ingrese una autoparte valida')  
